@@ -199,3 +199,33 @@ const db = getFirestore()
 //init collection ref
 const colRef = collection(db, 'users')
 
+//Stripe :) 
+//require('dotenv').config();
+// Importa la librería de Stripe
+const stripe = require('stripe')('sk_test_UEqlnnbMITO2SqRQ10ZJh33P');
+console.log("Tengo una stripe const: ", stripe)
+
+//Con Pop-up
+const stripeButton = document.getElementById('stripe-button');
+stripeButton.addEventListener('click', async () => {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price: 'price_1KatTfIYi36CbmfWBDyh8JS0',
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: 'https://tu-sitio.com/success',
+      cancel_url: 'https://tu-sitio.com/cancel',
+    });
+
+    // Abre el proceso de pago en un pop-up
+    window.open(session.url, 'stripeCheckout', 'width=600,height=800');
+  } catch (error) {
+    console.error('Error al crear la sesión de checkout:', error);
+  }
+});
+
