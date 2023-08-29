@@ -2,22 +2,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="/src/styles.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <title>Glass Boileplate</title>
 </head>
 <body class="gradient">
   <div id="todo">
     
     <div id="barra">
-      <div id="glassbar" class="glassmaterial" style="display: block;"></div>
+      <div id="glassbar" class="glassmaterial" style="display: block;">
+       
+        <div id="profile-info">
+          <div id="texto-container"></div>        
+          <div id="image-container"></div>
+          </div>
+       </div>
     </div>
     <div id="masterhead" style="display: block;">
-      <h1>Glass Boilerplate  👨‍🚀</h1>
+      <h1 >Glass Boilerplate  👨‍🚀</h1>
       <p id="slogan" style="display: block;"> Made with love 💙 by Moibe 🎞️ </p>
     </div>
     <div id="main_row">
-      <div id="glassCanvasA" class="glassMaterial" style="display: block;"></div>
-      <div id="glassCanvasB" class="glassMaterial" style="display: block;"></div>
+      <div id="glassCanvasA" class="glassMaterial" style="display: block;">
+      
+        <button class="googleLogin">Google</button>
+        <button class="logout">logout</button>
+        <button class="puller">Bring It!</button>
+        <button id="pusher">Push It</button>
+        <h1 id="textoPruebas">Texto para pruebas</h1>
+        
+               
+      </div>
+      <div id="glassCanvasB" class="glassMaterial animate__animated" style="display: block;">
+        <h1 id="textoPruebas2">Texto para pruebas</h1>
+      </div>
     </div>
   
   <div id="footer">
@@ -26,4 +48,5 @@
 </div>
 </body>
 <script src="bundle.js"></script>
+<script src="main.js"></script>
 </html>
