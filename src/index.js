@@ -24,9 +24,15 @@ initializeApp(firebaseConfig)
 //init auth services 
 const auth = getAuth()
 
+//Firestore
+const db = getFirestore()
+
+//init collection ref
+const colRef = collection(db, 'users')
+
+//Elementos a usar en el futuro.
 const textoContainer = document.getElementById('texto-container');
 const imageContainer = document.getElementById('image-container');
-const glassCanvasB = document.getElementById('glassCanvasB');
 
 onAuthStateChanged(auth, (user) => {
   console.log("Nuevo estatus de usuario:")
@@ -127,7 +133,7 @@ async function verificaSuRegistro(usuario) {
  
   }
 
-  async function agregarNuevoUsuario(usuario){
+async function agregarNuevoUsuario(usuario){
     
   addDoc(colRef, {
       uid: usuario.uid,
@@ -144,7 +150,7 @@ async function verificaSuRegistro(usuario) {
   }
  
 
-  async function obtenSusTokens(docRef){
+async function obtenSusTokens(docRef){
     console.log("La doc ref que tengo es:", docRef)
 
     var tokens
@@ -173,6 +179,7 @@ googleLoginButton.addEventListener('click', async (e) => {
 //Bring It
 const puller = document.querySelector('.puller')
 const textoPruebas = document.getElementById('textoPruebas');
+const glassCanvasB = document.getElementById('glassCanvasB');
 puller.addEventListener('click', () => {
   glassCanvasB.style.display = 'block';
   console.log("Bring it on")
@@ -193,9 +200,5 @@ logoutButton.addEventListener('click', () => {
     })
 })
 
-//Firestore
-const db = getFirestore()
 
-//init collection ref
-const colRef = collection(db, 'users')
 
